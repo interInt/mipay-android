@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import ke.co.interintel.mipay.Mipay;
 
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -48,10 +49,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void pay(View view) {
+    public void checkout(View view) {
 
         String reference = "1-INTINT-CVI35";
         Mipay.checkout(this, reference);
+
+    }
+
+    public void sale(View view) {
+
+        int productItemID = 100051;
+        int quantity = 3;
+
+        Mipay.sale(this, productItemID, quantity);
+
+    }
+
+    public void order(View view) {
+        int[] cartItems = {7330, 8075, 8152, 8150};
+        Mipay.order(this, cartItems);
 
     }
 
