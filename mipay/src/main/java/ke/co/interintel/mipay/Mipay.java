@@ -17,6 +17,12 @@ import static ke.co.interintel.mipay.Constants.MIPAY_HOST;
 public class Mipay {
     public static final int REQUEST_CODE_MIPAY_PAYMENT = 12;
 
+    public static final String pmCARD = "CARD";
+    public static final String pmM_PESA = "M-PESA";
+    public static final String pmAIRTEL_MONEY = "AIRTEL MONEY";
+    public static final String pmBANK = "BANK";
+    public static final String pmMIPAY = "MIPAY";
+
     public static boolean isAppInstalled(Context context, String packageName) {
         try {
             context.getPackageManager().getApplicationInfo(packageName, 0);
@@ -44,6 +50,12 @@ public class Mipay {
         callEndpoint(activity, httpUrl);
     }
 
+    public static void checkout(Activity activity, String reference, String paymentMethod) {
+        String httpUrl = "https://" + MIPAY_HOST + "/checkout/?reference=" + reference
+                + "&payment_method=" + paymentMethod;
+        callEndpoint(activity, httpUrl);
+    }
+
     private static String[] toStringA(int[] intArray) {
         String strArray[] = new String[intArray.length];
 
@@ -59,10 +71,25 @@ public class Mipay {
         callEndpoint(activity, httpUrl);
     }
 
+    public static void order(Activity activity, int[] cartItems, String paymentMethod) {
+        String cartItemsS = TextUtils.join(", ", toStringA(cartItems));
+        String httpUrl = "https://" + MIPAY_HOST + "/order/?cart_items=" + cartItemsS
+                + "&payment_method=" + paymentMethod;
+        callEndpoint(activity, httpUrl);
+    }
+
     public static void sale(Activity activity, int productItemID, int quantity) {
         String httpUrl = "https://" + MIPAY_HOST + "/order/?product_item_id="
                 + String.valueOf(productItemID)
                 + "\"&quantity=" + String.valueOf(quantity);
+        callEndpoint(activity, httpUrl);
+    }
+
+    public static void sale(Activity activity, int productItemID, int quantity, String paymentMethod) {
+        String httpUrl = "https://" + MIPAY_HOST + "/order/?product_item_id="
+                + String.valueOf(productItemID)
+                + "\"&quantity=" + String.valueOf(quantity)
+                + "&payment_method=" + paymentMethod;
         callEndpoint(activity, httpUrl);
     }
 }
