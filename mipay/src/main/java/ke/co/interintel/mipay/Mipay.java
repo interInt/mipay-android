@@ -26,10 +26,8 @@ public class Mipay {
         }
     }
 
-    public static void checkout(Activity activity, String reference) {
+    private static void callEndpoint(Activity activity, String httpUrl) {
         Intent i;
-        String httpUrl = "https://" + MIPAY_HOST + "/checkout/?reference=" + reference;
-
         if (isAppInstalled(activity, MIPAY_APP)) {
             i = new Intent();
             i.setClassName(MIPAY_APP, MIPAY_APP + ".SplashActivity");
@@ -38,10 +36,12 @@ public class Mipay {
         }
 
         i.setData(Uri.parse(httpUrl.toString()));
-
-
         activity.startActivityForResult(i, REQUEST_CODE_MIPAY_PAYMENT);
+    }
 
+    public static void checkout(Activity activity, String reference) {
+        String httpUrl = "https://" + MIPAY_HOST + "/checkout/?reference=" + reference;
+        callEndpoint(activity, httpUrl);
     }
 
     private static String[] toStringA(int[] intArray) {
@@ -55,38 +55,14 @@ public class Mipay {
 
     public static void order(Activity activity, int[] cartItems) {
         String cartItemsS = TextUtils.join(", ", toStringA(cartItems));
-        Intent i;
         String httpUrl = "https://" + MIPAY_HOST + "/order/?cart_items=" + cartItemsS;
-
-        if (isAppInstalled(activity, MIPAY_APP)) {
-            i = new Intent();
-            i.setClassName(MIPAY_APP, MIPAY_APP + ".SplashActivity");
-        } else {
-            i = new Intent(activity, WebViewActivity.class);
-        }
-
-        i.setData(Uri.parse(httpUrl.toString()));
-
-
-        activity.startActivityForResult(i, REQUEST_CODE_MIPAY_PAYMENT);
-
+        callEndpoint(activity, httpUrl);
     }
 
     public static void sale(Activity activity, int productItemID, int quantity) {
-        Intent i;
-        String httpUrl = "https://" + MIPAY_HOST + "/order/?product_item_id=" + String.valueOf(productItemID) + "\"&quantity=" + String.valueOf(quantity);
-
-        if (isAppInstalled(activity, MIPAY_APP)) {
-            i = new Intent();
-            i.setClassName(MIPAY_APP, MIPAY_APP + ".SplashActivity");
-        } else {
-            i = new Intent(activity, WebViewActivity.class);
-        }
-
-        i.setData(Uri.parse(httpUrl.toString()));
-
-
-        activity.startActivityForResult(i, REQUEST_CODE_MIPAY_PAYMENT);
-
+        String httpUrl = "https://" + MIPAY_HOST + "/order/?product_item_id="
+                + String.valueOf(productItemID)
+                + "\"&quantity=" + String.valueOf(quantity);
+        callEndpoint(activity, httpUrl);
     }
 }
