@@ -13,5 +13,12 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true" />
+    <ImageView
+        android:id="@+id/mipay_loading"
+        android:layout_width="88dp"
+        android:layout_height="88dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/mipay_gear"/>
 
 </RelativeLayout>
