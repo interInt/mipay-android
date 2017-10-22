@@ -20,7 +20,8 @@ repositories {
 
 dependencies {
         //...
-    compile 'org.bitbucket.interintel:mipay-android:v1.0.0'
+        compile 'com.github.interintel-opensource:mipay-android:v1.0.0'
+        
 }
 ```
 
