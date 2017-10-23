@@ -16,6 +16,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class WebViewActivity extends AppCompatActivity implements Animation.AnimationListener {
@@ -27,6 +28,7 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
     WebView webView;
     ProgressBar progressBar;
     Toolbar toolbar_webview;
+    TextView toolbar_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +36,18 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
 
         //set up the toolbar
         toolbar_webview = (Toolbar)findViewById(R.id.toolbar_webview);
+        toolbar_title =(TextView)findViewById(R.id.toolbar_title);
         setSupportActionBar(toolbar_webview);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //change back icon
         if (toolbar_webview != null) {
             toolbar_webview.setNavigationIcon(R.drawable.ic_clear_black_24dp);
-            toolbar_webview.setTitle(R.string.webview_title);
+            toolbar_webview.setTitle("");
+            toolbar_title.setText(R.string.webview_title);
 
         }
-        final ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar_webview);
+        progressBar = (ProgressBar)findViewById(R.id.progressBar_webview);
 
         //Get Data passed through intent
         final Intent sIntent = getIntent();
@@ -53,7 +57,7 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
         // load the animation
         mipay_loading = (ImageView)findViewById(R.id.mipay_loading);
         animLoad = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.rotate);
+                R.anim.fadeout);
 
         // set animation listener
         animLoad.setAnimationListener(this);
@@ -69,13 +73,11 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
         webView.setWebViewClient(new WebViewClient());
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int newProgress) {
-                if(newProgress >=100){
+                if (newProgress >= 93) {
                     mipay_loading.setVisibility(View.GONE);
                     mipay_loading.clearAnimation();
-                    toolbar_webview.setTitle(webView.getTitle());
-
-                }else{
-                    progressBar.setVisibility(View.VISIBLE);
+                    toolbar_title.setText(webView.getTitle());
+                    progressBar.setVisibility(View.INVISIBLE);
                 }
             }
         });
