@@ -62,12 +62,6 @@
         android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <ImageView
-        android:id="@+id/mipay_loading"
-        android:layout_width="88dp"
-        android:layout_height="88dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/mipay_gear"/>
+
 </RelativeLayout>
 </LinearLayout>

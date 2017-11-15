@@ -23,7 +23,6 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
 
     // Animation
     Animation animLoad;
-    ImageView mipay_loading;
     //web UI
     WebView webView;
     ProgressBar progressBar;
@@ -54,14 +53,7 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
         String urlString = sIntent.getDataString();
 
 
-        // load the animation
-        mipay_loading = (ImageView)findViewById(R.id.mipay_loading);
-        animLoad = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.fadeout);
 
-        // set animation listener
-        animLoad.setAnimationListener(this);
-        mipay_loading.startAnimation(animLoad);
 
         webView = (WebView) findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -74,8 +66,6 @@ public class WebViewActivity extends AppCompatActivity implements Animation.Anim
         webView.setWebChromeClient(new WebChromeClient() {
             public void onProgressChanged(WebView view, int newProgress) {
                 if (newProgress >= 93) {
-                    mipay_loading.setVisibility(View.GONE);
-                    mipay_loading.clearAnimation();
                     toolbar_title.setText(webView.getTitle());
                     progressBar.setVisibility(View.INVISIBLE);
                 }

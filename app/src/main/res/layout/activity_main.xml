@@ -7,8 +7,8 @@
     tools:context="ke.co.interintel.mipaysdk.MainActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_height="@dimen/abc_action_bar_default_height_material"
-        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_width="0dp"
         android:background="@color/colorPrimary"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
