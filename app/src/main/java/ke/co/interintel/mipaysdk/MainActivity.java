@@ -54,10 +54,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void pay(View view) {
-
+    public void checkout(View view) {
         String reference = "1-INTINT-CVI35";
         Mipay.checkout(this, reference);
+
+    }
+
+    public void sale(View view) {
+        int productItemID = 99781;
+        int quantity = 10;
+
+        Mipay.sale(this, productItemID, quantity);
+
+    }
+
+    public void order(View view) {
+        int[] cartItems = {8374, 8375, 8378};
+        Mipay.order(this, cartItems);
 
     }
 
