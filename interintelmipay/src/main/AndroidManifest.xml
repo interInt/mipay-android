@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ke.co.interintel.mipay">
+    package="ke.co.interintel.interintelmipay">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -9,7 +9,7 @@
         android:supportsRtl="true">
 
 
-        <activity android:name=".WebViewActivity" />
+        <activity android:name="ke.co.interintel.interintelmipay.WebViewActivity" />
 
     </application>
 

@@ -1,1 +1,1 @@
-include ':app', ':mipay'
+include ':app', ':interintelmipay'

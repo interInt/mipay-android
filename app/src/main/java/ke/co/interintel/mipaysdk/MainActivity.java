@@ -11,7 +11,7 @@ import android.view.View;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import ke.co.interintel.mipay.Mipay;
+import ke.co.interintel.interintelmipay.Mipay;
 
 
 public class MainActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package ke.co.interintel.mipay;
+package ke.co.interintel.interintelmipay;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("ke.co.interintel.mipay.test", appContext.getPackageName());
+        assertEquals("ke.co.interintel.interintelmipay.test", appContext.getPackageName());
     }
 }

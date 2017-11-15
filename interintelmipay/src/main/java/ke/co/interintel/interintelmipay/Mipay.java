@@ -1,4 +1,4 @@
-package ke.co.interintel.mipay;
+package ke.co.interintel.interintelmipay;
 
 import android.app.Activity;
 import android.content.Context;
@@ -7,8 +7,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.text.TextUtils;
 
-import static ke.co.interintel.mipay.Constants.MIPAY_APP;
-import static ke.co.interintel.mipay.Constants.MIPAY_HOST;
+import static ke.co.interintel.interintelmipay.Constants.MIPAY_APP;
+import static ke.co.interintel.interintelmipay.Constants.MIPAY_HOST;
 
 /**
  * Created by danleyb2 on 10/13/17.

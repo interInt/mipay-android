@@ -1,4 +1,4 @@
-package ke.co.interintel.mipay;
+package ke.co.interintel.interintelmipay;
 
 import android.app.Activity;
 import android.content.Intent;
