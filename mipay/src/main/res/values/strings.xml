@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mipay</string>
+    <string name="webview_title">MIPAY - Send Money | Receive Money | Pay bills</string>
 </resources>

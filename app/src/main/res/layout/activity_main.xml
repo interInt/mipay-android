@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="ke.co.interintel.mipaysdk.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="56dp"
+        android:layout_width="0dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
 
     <Button
         android:id="@+id/button"
@@ -18,6 +28,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintVertical_bias="0.14" />
+
+
 
     <Button
         android:id="@+id/button2"
