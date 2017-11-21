@@ -3,7 +3,7 @@
 This library will open the Mipay app if installed else opens the mipay web-app  enabling making of  
 payments and returns the response to the calling activity
 
-Mipay App - https://play.google.com/store/apps/details?id=interintelmipay
+Mipay App - https://play.google.com/store/apps/details?id=ke.co.interintel.mipay
 
 ### Quick Setup
 - Add the JitPack repository to your build file 
