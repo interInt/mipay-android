@@ -1,11 +1,14 @@
 # MIPAY Android Sdk
+## Overview
 
-This library will open the Mipay app if installed else opens the mipay web-app  enabling making of  
-payments and returns the response to the calling activity
+The purpose of this library is to open the Mipay app if the Mipay app is installed on the users device. If the Mipay application is not installed, the library will open the Mipay web-app instead. 
+The Mipay app/web-app will allow the 3rd party app activity to provide the user with capability to make a payment via Mipay platform, and then return a payment status back to the 3rd party app. 
 
 Mipay App - https://play.google.com/store/apps/details?id=ke.co.interintel.mipay
 
 ### Quick Setup
+The following steps will be followed to set up:
+
 - Add the JitPack repository to your build file 
 Add it in your `build.gradle` at the end of repositories:
 ```
@@ -36,6 +39,7 @@ Payment methods include
     Mipay.pmMIPAY           // MIPAY
 
 ```
+## Examples
 
 #### Checkout
 To obtain a `reference`,   
